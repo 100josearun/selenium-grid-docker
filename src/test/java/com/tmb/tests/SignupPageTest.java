@@ -17,4 +17,5 @@ public class SignupPageTest extends BaseTest {
         Assert.assertEquals(actualTitle, testdata.expectedTitle);
         signupPage.createNewAccount(testdata.username, testdata.workemail, testdata.password);
     }
+
 }
