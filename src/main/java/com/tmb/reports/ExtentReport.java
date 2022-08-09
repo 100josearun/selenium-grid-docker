@@ -10,7 +10,7 @@ public final class ExtentReport {
     private ExtentReport(){}
 
     public static ExtentReports extent;
-    public static ExtentTest extentTest; //loginTest is not thread safe
+    public static ExtentTest extentTest;
 
 
     public static void initReports(){

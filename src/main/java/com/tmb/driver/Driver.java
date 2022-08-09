@@ -2,10 +2,9 @@ package com.tmb.driver;
 
 import com.tmb.config.ConfigFactory;
 import org.openqa.selenium.WebDriver;
-
 import java.util.concurrent.TimeUnit;
 
-public final class Driver { //IS A relationship
+public final class Driver {
 
     private Driver(){}
 
@@ -15,7 +14,7 @@ public final class Driver { //IS A relationship
             WebDriver driver = DriverFactory.getDriver(browser);
             DriverManager.setDriver(driver);
             DriverManager.getDriver().manage().window().maximize();
-            DriverManager.getDriver().manage().timeouts().implicitlyWait(ConfigFactory.getConfig().timeout(), TimeUnit.SECONDS);//presence of element in the dom
+            DriverManager.getDriver().manage().timeouts().implicitlyWait(ConfigFactory.getConfig().timeout(), TimeUnit.SECONDS);
             DriverManager.getDriver().get(ConfigFactory.getConfig().url());
         }
     }

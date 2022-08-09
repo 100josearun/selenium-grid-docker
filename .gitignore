@@ -1,2 +1,7 @@
 # Project exclude paths
 /target/
+*.iml
+.DS_Store
+.idea/
+index.html
+src/test/.DS_Store

@@ -1,6 +1,6 @@
 package com.tmb.config;
 
-public final class ConfigFactory { //no one can extend this
+public final class ConfigFactory {
 
     private ConfigFactory(){}
 

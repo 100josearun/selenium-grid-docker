@@ -1,12 +1,9 @@
 package com.tmb.tests;
 
 import com.tmb.driver.Driver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 public class BaseTest {
-
-
 
     @BeforeMethod
     public void setUp() {

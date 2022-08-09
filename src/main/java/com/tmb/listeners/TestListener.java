@@ -1,6 +1,5 @@
 package com.tmb.listeners;
 
-import com.tmb.annotations.FrameworkAnnotation;
 import com.tmb.reports.ExtentLogger;
 import com.tmb.reports.ExtentReport;
 import org.testng.ITestContext;
@@ -14,8 +13,6 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         ExtentReport.createTest(result.getMethod().getDescription());
-        ExtentReport.assignAuthor(result.getMethod().getConstructorOrMethod().getMethod()
-                .getAnnotation(FrameworkAnnotation.class).author());
     }
 
     @Override

@@ -5,7 +5,9 @@ import com.tmb.driver.DriverManager;
 import com.tmb.enums.WaitType;
 import com.tmb.reports.ExtentLogger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,6 +18,13 @@ public final class SeleniumUtils {
     public static void click(By by, String elementName){
         WebElement element = waitUntilElementPresent(by);
         element.click();
+        ExtentLogger.pass(elementName + " is clicked successfully");
+    }
+
+    public static void clickUsingActions(By by, String elementName){
+        WebElement element = waitUntilElementPresent(by);
+        Actions actions = new Actions(DriverManager.getDriver());
+        actions.moveToElement(element).click().perform();
         ExtentLogger.pass(elementName + " is clicked successfully");
     }
 
@@ -52,5 +61,13 @@ public final class SeleniumUtils {
     private static WebElement waitUntilElementToBeClickable(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), ConfigFactory.getConfig().timeout());
         return wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    public static boolean isElementDisplayed(By by){
+        return DriverManager.getDriver().findElement(by).isDisplayed();
+    }
+
+    public static String getElementText(By by){
+        return DriverManager.getDriver().findElement(by).getText().trim();
     }
 }
