@@ -4,10 +4,12 @@
     <listeners>
         <listener class-name="com.amazon.listeners.TestListener"/>
     </listeners>
-    <test name="SeleniumFramework">
-        <parameter name="browser" value="CHROME"></parameter>
+
+    <test name="Chrome_Test">
+        <parameter name="browser" value="CHROME_GRID"></parameter>
         <classes>
             <class name="com.amazon.tests.SearchResultsPageTest"/>
         </classes>
     </test>
+
 </suite>
