@@ -30,18 +30,4 @@ public class DataProviderUtils {
                 .filter(e->e.getMenu().contains("Mobiles"));
     }
 
-    @DataProvider(name = "accountSignUp")
-    public static Object[][] getValidData(Method method){
-        Faker dataGenerator = new Faker();
-        if(method.getName().equalsIgnoreCase("dynamic")) {
-            return new Object[][]{
-                    {dataGenerator.name().fullName(), dataGenerator.internet().emailAddress(), dataGenerator.internet().password(8, 15, true, true, true)}
-            };
-        }else{
-            return new Object[][]{
-                    {dataGenerator.name().fullName(), "jerry@google.com", dataGenerator.internet().password(8, 15, true, true, true)},
-                    {dataGenerator.name().fullName(), dataGenerator.internet().emailAddress(), dataGenerator.internet().password(3, 6)},
-            };
-        }
-    }
 }

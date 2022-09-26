@@ -19,28 +19,22 @@ public class SearchResultsPageTest extends BaseTest{
 
     @Test(description = "Search Category - TV", dataProvider = "getTVData", dataProviderClass = DataProviderUtils.class)
     public void productSearchTV(JsonData data) throws InterruptedException {
-        System.out.println(data.toString());
         homePage = new HomePage();
         Assert.assertEquals(getPageTitle(), HOME_PAGE_TITLE);
         searchResultsPage = homePage.selectCategory(data.getMenu(), data.getSubMenu());
         Assert.assertEquals(getPageTitle(), SEARCH_PAGE_TITLE_TV);
         searchResultsPage.filterAndSortResults(data.getCheckbox(), data.getBrandName(),data.getFilter(), data.getElementAt())
                 .displayElementDetails(data.getSection());
-
-        Thread.sleep(5000);
     }
 
     @Test(description = "Search Category - Mobile", dataProvider = "getMobilesData", dataProviderClass = DataProviderUtils.class)
     public void productSearchMobile(JsonData data) throws InterruptedException {
-        System.out.println(data.toString());
         homePage = new HomePage();
         Assert.assertEquals(getPageTitle(), HOME_PAGE_TITLE);
         searchResultsPage = homePage.selectCategory(data.getMenu(), data.getSubMenu());
         Assert.assertEquals(getPageTitle(), SEARCH_PAGE_TITLE_MOBILE);
         searchResultsPage.filterAndSortResults(data.getCheckbox(), data.getBrandName(),data.getFilter(), data.getElementAt())
                 .displayElementDetails(data.getSection());
-
-        Thread.sleep(5000);
     }
 
 }

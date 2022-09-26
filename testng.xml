@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="UI-Automation">
+<suite name="UI-Automation" parallel="tests" thread-count="5">
     <listeners>
         <listener class-name="com.amazon.listeners.TestListener"/>
     </listeners>
-    <test name="SeleniumFramework">
+    <test name="SeleniumFramework-1">
+        <parameter name="browser" value="CHROME"></parameter>
+        <classes>
+            <class name="com.amazon.tests.SearchResultsPageTest"/>
+        </classes>
+    </test>
+    <test name="SeleniumFramework-2">
         <parameter name="browser" value="CHROME"></parameter>
         <classes>
             <class name="com.amazon.tests.SearchResultsPageTest"/>

@@ -11,10 +11,15 @@ public final class CapabilityManager {
     private static Capabilities capabilities;
 
     public static Capabilities getCapabilities (BrowserType browser) {
-        if (browser.name().equalsIgnoreCase("firefox"))
-            capabilities = OptionsManager.getFirefoxOptions();
-        else
-            capabilities = OptionsManager.getChromeOptions();
+
+        switch (browser){
+            case FIREFOX:
+                capabilities = OptionsManager.getFirefoxOptions();
+                break;
+            default:
+                capabilities = OptionsManager.getChromeOptions();
+                break;
+        }
         return capabilities;
     }
 }

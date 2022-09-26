@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="UI-Automation">
+<suite name="UI-Automation" parallel="tests" thread-count="5">
+
     <listeners>
         <listener class-name="com.amazon.listeners.TestListener"/>
     </listeners>
 
     <test name="Chrome_Test">
         <parameter name="browser" value="CHROME_GRID"></parameter>
+        <classes>
+            <class name="com.amazon.tests.SearchResultsPageTest"/>
+        </classes>
+    </test>
+
+    <test name="Firefox_Test">
+        <parameter name="browser" value="FIREFOX_GRID"></parameter>
         <classes>
             <class name="com.amazon.tests.SearchResultsPageTest"/>
         </classes>

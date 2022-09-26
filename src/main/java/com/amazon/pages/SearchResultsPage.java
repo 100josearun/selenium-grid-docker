@@ -12,7 +12,7 @@ public class SearchResultsPage {
     private static final By SORT_BY_FILTER = By.id("a-autoid-0");
     private static final By SORT_BY_FILTER_DROPDOWN = By.xpath("//*[@class='a-popover-wrapper']//ul[@role='listbox']");
     private static final By SEARCH_RESULTS_CONTAINER = By.xpath("//*[contains(@class,'s-main-slot')]");
-    private static final String SELECT_ELEMENT_AT_INDEX = "//div[@data-index='%d']";
+    private static final String SELECT_ELEMENT_AT_INDEX = "//div[@data-index='%d']//a";
     private String str = "";
 
     private SearchResultsPage filterResultsBy(String name, String option){
@@ -36,7 +36,6 @@ public class SearchResultsPage {
         filterResultsBy(filterBy, filterByOption);
         sortSearchResultsBy(sortBy);
         str = getDynamincXpath(SELECT_ELEMENT_AT_INDEX, elementIndex);
-//        clickUsingActions(By.xpath(str), "Selecting "+elementIndex+" element");
         click(By.xpath(str));
         switchControlToTab(1);
         return new ProductDetailPage();
